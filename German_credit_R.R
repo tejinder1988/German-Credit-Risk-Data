@@ -1,9 +1,10 @@
 library(tidyr)
 library(tidyverse)
 library(ggpubr)
+library(corrplot)
 
 
-cosetwd("C:/Users/Teji/Desktop/Project/German-Credit-Risk-Data")
+setwd("C:/Users/Teji/Desktop/Project/German-Credit-Risk-Data")
 data<-read.csv("german_credit_data.csv")
 
 ### Drop off the NA
@@ -11,7 +12,6 @@ data<-read.csv("german_credit_data.csv")
 data<-data[!is.na(data$Saving.accounts)==TRUE&!is.na(data$Checking.account)==TRUE,]
 ### Drop off the Column "X"
 data<-data[,-1]
-esquisse::esquisser()
 
 ggplot(data=data)+aes(x=Age)+geom_histogram(bins=45,fill="#6baed6")+
 labs(x="Age",y="Count")+
@@ -66,8 +66,45 @@ st4<-data%>%
 ggballoonplot(st4, x = "Sex", y = "Job", size = "Average_duration",fill = "Average_Credit_amount",
               ggtheme = theme_bw()) +gradient_fill(c("Grey", "Red"))
 
-subset(data,data$Sex=="female"&data$Purpose=="vacation/others")
+## Coreplot transformation
+cor_data<-data%>%
+  select(Age,Job,Credit.amount,Duration)
+##
+sex_male<-ifelse(data$Sex=="male",1,0)
+sex_female<-ifelse(data$Sex=="female",1,0)
+
+housing_free<-ifelse(data$Housing=="free",1,0)
+housing_own<-ifelse(data$Housing=="own",1,0)
+housing_rent<-ifelse(data$Housing=="rent",1,0)
+
+Checking.account_little<-ifelse(data$Checking.account=="little",1,0)
+Checking.account_moderate<-ifelse(data$Checking.account=="moderate",1,0)
+Checking.account_rich<-ifelse(data$Checking.account=="rich",1,0)
+
+Saving.accounts_little<-ifelse(data$Saving.accounts=="little",1,0)
+Saving.accounts_moderate<-ifelse(data$Saving.accounts=="moderate",1,0)
+Saving.accounts_quite_rich<-ifelse(data$Saving.accounts=="quite rich",1,0)
+Saving.accounts_rich<-ifelse(data$Saving.accounts=="rich",1,0)
+
+Purpose_business<-
+  Purpose_business<-
+  Purpose_business<-
+  
+##
+
+
+cor_data<-data.frame(cor_data,
+                     Sex=as.numeric(data$Sex),
+                     Housing=as.numeric(data$Housing),
+                     Saving.accounts=as.numeric(data$Saving.accounts),
+                     Credit.amount=as.numeric(data$Credit.amount),
+                     Purpose=purpose)
+corrplot(cor(cor_data),method="circle")
+
+
 
 
 # Decision tree classifier
+
+
 
