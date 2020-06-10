@@ -7,7 +7,6 @@ library(cluster)
 library(fpc)
 
 
-setwd("C:/Users/Teji/Desktop/Project/German-Credit-Risk-Data")
 data<-read.csv("german_credit_data.csv")
 
 ### Drop off the NA
