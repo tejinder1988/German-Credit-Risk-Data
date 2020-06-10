@@ -43,7 +43,7 @@ ggplot(data=data,aes(x=Credit.amount,y=Age,col=Sex))+geom_point()+
   labs(y="Age",x="Credit amount")+
   theme_gray()
 ```
-![Screenshot](AgevsCreditamount FM.png)  
+![Screenshot](AgevsCreditamountFM.png)  
 
 ```{r}
 ggplot(data=data)+
