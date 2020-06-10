@@ -28,6 +28,7 @@ ggplot(data=data)+aes(x=Age)+geom_histogram(bins=45,fill="#6baed6")+
   labs(x="Age",y="Count")+
   theme_gray()
 ```
+
 ![Screenshot](Age Distribution.png)
 
 ```{r}
