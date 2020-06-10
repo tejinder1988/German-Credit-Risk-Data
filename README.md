@@ -62,7 +62,7 @@ st1<-data%>%
 ggballoonplot(st1, x = "Sex", y = "Purpose", size = "Average_duration",fill = "Average_Credit_amount",
               ggtheme = theme_bw()) +gradient_fill(c("Grey", "Red"))
 ```
-
+![Screenshot](bubbleplot1.png)  
 ```{r}
 cor_data<-data%>%
   select(Age,Job,Credit.amount,Duration)
