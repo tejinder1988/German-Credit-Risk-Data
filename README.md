@@ -28,6 +28,7 @@ ggplot(data=data)+aes(x=Age)+geom_histogram(bins=45,fill="#6baed6")+
   labs(x="Age",y="Count")+
   theme_gray()
 ```
+![Screenshot](Age Distribution.png)
 
 ```{r}
 ggplot(data=data)+aes(x=Purpose)+geom_bar(fill="#6baed6")+
@@ -35,19 +36,14 @@ ggplot(data=data)+aes(x=Purpose)+geom_bar(fill="#6baed6")+
   theme_gray()+
   theme(axis.text.x=element_text(size=rel(0.9)))
 ```
-
+![Screenshot](Distribution Purpose.png)
 ```{r}
 ggplot(data=data,aes(x=Credit.amount,y=Age,col=Sex))+geom_point()+
   labs(y="Age",x="Credit amount")+
   theme_gray()
 ```
-  
-```{r}
-ggplot(data=data,aes(x=Credit.amount,y=Duration,col=Sex))+geom_point()+
-  labs(y="Duration",x="Credit amount")+
-  theme_gray()
-```
-  
+![Screenshot](Age vs Creditamount FM.png)  
+
 ```{r}
 ggplot(data=data)+
   aes(x=Purpose,y=Age,fill=Sex)+
@@ -55,3 +51,4 @@ ggplot(data=data)+
   theme_grey()+
   theme(axis.text.x=element_text(size=rel(0.9)))
 ```
+![Screenshot](Corrplot.png)  
